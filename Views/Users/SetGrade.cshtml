@@ -1,0 +1,30 @@
+﻿@model Projekt_atrakcje.Models.User
+
+@{
+    ViewData["Title"] = "Ocenianie";
+}
+
+<h1 class="text-center">Wystaw oceny</h1>
+<h2 class="text-center">@Model.Name_user dla miasta: @ViewBag.city.Name</h2>
+
+<form asp-action="SetGrade">
+    <div class="container mt-4">
+        @foreach (var attraction in ViewBag.gradelist)
+        {
+            <input type="hidden" name="ids" value="@attraction.AttractionId" />
+            <div class="row border-bottom py-2">
+                <div class="col-md-6">@attraction.Name_attraction</div>
+                <div class="col-md-6">
+                    <input name="oceny" value="@attraction.Ocena" class="form-control" />
+                </div>
+            </div>
+        }
+    </div>
+    <input type="hidden" name="cityid" value="@ViewBag.city.Id" />
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6 text-center">
+            <input type="submit" value="Zapisz" class="btn btn-primary btn-sm" />
+            <a asp-action="Index" class="btn btn-sm btn-primary ms-2">Powrót</a>
+        </div>
+    </div>
+</form>

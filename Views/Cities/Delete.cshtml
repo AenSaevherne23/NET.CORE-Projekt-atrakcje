@@ -1,0 +1,51 @@
+﻿@model Projekt_atrakcje.Models.City
+
+@{
+    ViewData["Title"] = "Usuwanie";
+}
+
+<div class="container">
+    <h1 class="text-center">Usuwanie</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="text-center">Jesteś pewien, że chcesz je usunąć?</h3>
+            <div>
+                <h4>Miasto</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Region)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Region)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Population)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Population)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Country)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Country.Name)
+                    </dd>
+                </dl>
+
+                <form asp-action="Delete" class="text-center mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Usuń</button> |
+                    <a asp-action="Index" class="btn btn-secondary">Wróć do strony głównej</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

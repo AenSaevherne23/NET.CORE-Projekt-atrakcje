@@ -1,0 +1,47 @@
+﻿@model Projekt_atrakcje.Models.Attraction
+
+@{
+    ViewData["Title"] = "Dodawanie";
+}
+
+<div class="container">
+    <h1 class="text-center">Dodaj nową atrakcję</h1>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name_attraction" class="control-label"></label>
+                <input asp-for="Name_attraction" class="form-control" />
+                <span asp-validation-for="Name_attraction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CityId" class="control-label">Nazwa miasta</label>
+                <select asp-for="CityId" class ="form-control" asp-items="ViewBag.CityId"></select>
+            </div>
+            <div class="form-group text-center mt-3">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Wróć do strony głównej</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
